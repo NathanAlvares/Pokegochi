@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pokegochi", "Pokegochi.csproj", "{BF876A25-ACC2-4BE0-AC0B-85144D7010CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF876A25-ACC2-4BE0-AC0B-85144D7010CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF876A25-ACC2-4BE0-AC0B-85144D7010CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF876A25-ACC2-4BE0-AC0B-85144D7010CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF876A25-ACC2-4BE0-AC0B-85144D7010CF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C7D2C0E1-FC3E-4A9C-B140-446F3F26135B}
+	EndGlobalSection
+EndGlobal
