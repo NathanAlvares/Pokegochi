@@ -7,17 +7,63 @@ namespace Pokegochi
 {
     class Program
     {
+        
         static void Main(string[] args)
         {
-            InvocarGet();
-        }
-        private static void InvocarGet()
-        {
+            
+            Console.WriteLine(@"                                  ,'\
+                                    _.----.        ____         ,'  _\   ___    ___     ____
+                                _,-'       `.     |    |  /`.   \,-'    |   \  /   |   |    \  |`.
+                                \      __    \    '-.  | /   `.  ___    |    \/    |   '-.   \ |  |
+                                 \.    \ \   |  __  |  |/    ,','_  `.  |          | __  |    \|  |
+                                   \    \/   /,' _`.|      ,' / / / /   |          ,' _`.|     |  |
+                                    \     ,-'/  /   \    ,'   | \/ / ,`.|         /  /   \  |     |
+                                     \    \ |   \_/  |   `-.  \    `'  /|  |    ||   \_/  | |\    |
+                                      \    \ \      /       `-.`.___,-' |  |\  /| \      /  | |   |
+                                       \    \ `.__,'|  |`-._    `|      |__| \/ |  `.__,'|  | |   |
+                                        \_.-'       |__|    `-._ |              '-.|     '-.| |   |
+                                                                `'                            '-._|");
+            Console.Write("Escreva seu nome: ");
+            string? name = Console.ReadLine();
 
-            var client = new RestClient($"https://pokeapi.co/api/v2/pokemon/3");
+            Console.WriteLine("-------------------- Menu --------------------");
+            Console.WriteLine($"Treinador {name}, o que você deseja fazer?");
+
+            string menuName;
+            int menuOption;
+            for (menuOption = 1; menuOption <= 3; menuOption++)
+            {
+                switch (menuOption)
+                {
+                    case 1:
+                        menuName = "Adotar um mascote virtual";
+                        Console.WriteLine($"{menuOption} - {menuName}");
+                        break;
+                    case 2:
+                        menuName = "Ver seus mascotes";
+                        Console.WriteLine($"{menuOption} - {menuName}");
+                        break;
+                    case 3:
+                        menuName = "Sair";
+                        Console.WriteLine($"{menuOption} - {menuName}");
+                        break;
+                }
+            }
+            Console.WriteLine($"-------------------- {menuName} --------------------");
+            var response = GetPokemon("Charmander");
+            ShowPokemon(response);
+        }
+        private static RestResponse GetPokemon(string pokemonName)
+        {
+            var client = new RestClient($"https://pokeapi.co/api/v2/pokemon/{pokemonName}");
             RestRequest request = new RestRequest("", Method.Get);
             var response = client.Execute(request);
 
+            return response;
+        }
+
+        static void ShowPokemon(RestResponse response)
+        {
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 Pokemon pokemon = JsonSerializer.Deserialize<Pokemon>(response.Content);
@@ -40,6 +86,8 @@ namespace Pokegochi
             Console.ReadKey();
         }
     }
+
+    
 
     public class Pokemon
     {
